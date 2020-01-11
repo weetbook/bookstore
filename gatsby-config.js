@@ -2,6 +2,7 @@ const metaConfig = require('./gatsby-meta-config')
 
 module.exports = {
   siteMetadata: metaConfig,
+  pathPrefix: '/bookstore',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -31,7 +32,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 200,
               linkImagesToOriginal: false,
             },
           },
@@ -58,6 +59,7 @@ module.exports = {
           `gatsby-remark-smartypants`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-emoji`,
+          `@pauliescanlon/gatsby-remark-grid-system`,
         ],
       },
     },
@@ -83,6 +85,12 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: ['material icons', 'roboto:300,400,500,700'],
       },
     },
     `gatsby-transformer-sharp`,

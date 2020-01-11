@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import './index.scss'
 
-export const PostNavigator = ({ pageContext }) => {
+export const PostNavigator = ({ pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
@@ -14,6 +14,9 @@ export const PostNavigator = ({ pageContext }) => {
             ← {previous.frontmatter.title}
           </Link>
         )}
+      </li>
+      <li>
+        <Link to={location.pathname}>맨 위로</Link>
       </li>
       <li>
         {next && (

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import _ from 'lodash'
 
 import { Layout } from '../layout'
-import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
@@ -16,7 +15,7 @@ import * as Dom from '../utils/dom'
 
 import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
-const DEST_POS = 316
+const DEST_POS = 50
 const BASE_LINE = 80
 
 function getDistance(currentPos) {
@@ -74,7 +73,6 @@ export default ({ data, location }) => {
   return (
     <Layout location={location} title={siteMetadata.title}>
       <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
-      <Bio />
       <Category
         categories={categories}
         category={category}
@@ -111,7 +109,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY.MM.DD")
             title
             category
             draft

@@ -8,10 +8,12 @@
     "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
   },
   "dependencies": {
+    "@pauliescanlon/gatsby-remark-grid-system": "^0.0.4",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-feed": "^2.1.0",
     "gatsby-plugin-google-analytics": "^2.0.17",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-lodash": "^3.0.5",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",
@@ -31,6 +33,7 @@
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
+    "gh-pages": "^2.2.0",
     "intersection-observer": "^0.5.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
@@ -78,7 +81,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master -r https://github.com/weetbook/bookstore/weetbook.github.io",
     "lh": "lighthousebot",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }

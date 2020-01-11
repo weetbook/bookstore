@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { THEME } from '../../constants'
 
 export function Head({ description, lang, meta, keywords, title }) {
   return (
@@ -15,8 +16,11 @@ export function Head({ description, lang, meta, keywords, title }) {
             htmlAttributes={{
               lang,
             }}
+            bodyAttributes={{
+              class: THEME.LIGHT,
+            }}
             title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            titleTemplate={`%s`}
             meta={[
               {
                 name: `description`,
@@ -52,7 +56,7 @@ export function Head({ description, lang, meta, keywords, title }) {
               },
             ]
               .concat(
-                keywords.length > 0
+                !!keywords && keywords.length > 0
                   ? {
                       name: `keywords`,
                       content: keywords.join(`, `),
@@ -68,9 +72,9 @@ export function Head({ description, lang, meta, keywords, title }) {
 }
 
 Head.defaultProps = {
-  lang: `en`,
+  lang: `ko`,
   meta: [],
-  keywords: [],
+  keywords: ['개발자 추천 책', '개발자 필독서'],
 }
 
 Head.propTypes = {
