@@ -26,7 +26,7 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-353d26cb8f1f028e8629.js"
+    "url": "webpack-runtime-538033d174191e23de14.js"
   },
   {
     "url": "styles.32c1fda0467d9729f371.css"
@@ -38,14 +38,14 @@ self.__precacheManifest = [
     "url": "commons-917258c562290da4023a.js"
   },
   {
-    "url": "app-5eb162fd01017554a49c.js"
+    "url": "app-5d072fbf9a9d4192dd73.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "8a59de54dc94dca9e822061afe9e7ef0"
+    "revision": "22f175ec284e726f2feafc7186d26975"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -77,7 +77,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/bookstore/app-5eb162fd01017554a49c.js`))) {
+  if (!resources || !(await caches.match(`/bookstore/app-5d072fbf9a9d4192dd73.js`))) {
     return await fetch(event.request)
   }
 
