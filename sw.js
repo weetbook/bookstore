@@ -26,10 +26,10 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-538033d174191e23de14.js"
+    "url": "webpack-runtime-f64008e69493f67eb18a.js"
   },
   {
-    "url": "styles.32c1fda0467d9729f371.css"
+    "url": "styles.26a183d124899d2a66e9.css"
   },
   {
     "url": "styles-9174273a5c30f665c7ec.js"
@@ -38,18 +38,14 @@ self.__precacheManifest = [
     "url": "commons-917258c562290da4023a.js"
   },
   {
-    "url": "app-c00c505b7b2ea6fa8f8c.js"
+    "url": "app-19765917592ef0f91188.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "6290bd2179e2c0f491ae01b4ffaf6b76"
-  },
-  {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "c355c8040c47a63bfb3360e4b7cb6553"
+    "revision": "5f1e144515955bd6060d6ceaae245d60"
   },
   {
     "url": "manifest.webmanifest",
@@ -72,12 +68,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/bookstore`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/bookstore/app-c00c505b7b2ea6fa8f8c.js`))) {
+  if (!resources || !(await caches.match(`/app-19765917592ef0f91188.js`))) {
     return await fetch(event.request)
   }
 
@@ -90,7 +86,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/bookstore/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
